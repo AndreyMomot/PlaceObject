@@ -7,21 +7,34 @@
 //
 
 import UIKit
+import ARKit
 
 protocol CameraViewDelegate: NSObjectProtocol {
     
-    func viewSomeAction(view: CameraViewProtocol)
+    func viewRefresh(view: CameraViewProtocol)
+    func viewShowInfo(view: CameraViewProtocol)
+    func viewAddObject(view: CameraViewProtocol)
+    func viewShowSettings(view: CameraViewProtocol)
 }
 
 protocol CameraViewProtocol: NSObjectProtocol {
     
     weak var delegate: CameraViewDelegate? { get set }
+    var sceneView: ARSCNView! { get }
+    var statusTextView: UITextView! { get }
 }
 
 class CameraView: UIView, CameraViewProtocol{
     
     // MARK: - CameraView interface methods
-
+    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var statusTextView: UITextView!
+    @IBOutlet var refreshButton: UIButton!
+    @IBOutlet var infoButton: UIButton!
+    @IBOutlet var addButton: UIButton!
+    @IBOutlet var settingsButton: UIButton!
+    
+    var trackingState: ARCamera.TrackingState!
     weak public var delegate: CameraViewDelegate?
     
     // MARK: - Overrided methods
@@ -30,10 +43,51 @@ class CameraView: UIView, CameraViewProtocol{
         super.awakeFromNib()
     }
     
+    private func setStatusText() {
+        let text = "Tracking: \(getTrackingDescription())\n"
+        statusTextView.text = text
+    }
+    
+    private func getTrackingDescription() -> String {
+        var description = ""
+        if let t = trackingState {
+            switch(t) {
+            case .notAvailable:
+                description = "TRACKING UNAVAILABLE"
+                statusTextView.textColor = UIColor.red
+            case .normal:
+                description = "TRACKING NORMAL"
+                statusTextView.textColor = UIColor.green
+            case .limited(let reason):
+                statusTextView.textColor = UIColor.red
+                switch reason {
+                case .excessiveMotion:
+                    description = "TRACKING LIMITED - Too much camera movement"
+                case .insufficientFeatures:
+                    description = "TRACKING LIMITED - Not enough surface detail"
+                case .initializing:
+                    description = "INITIALIZING"
+                }
+            }
+        }
+        return description
+    }
+    
     // MARK: - IBActions
     
-    func someButtonAction() {
-
-        self.delegate?.viewSomeAction(view: self)
+    @IBAction func onPressedRefreshButton(_ sender: Any) {
+        self.delegate?.viewRefresh(view: self)
+    }
+    
+    @IBAction func onPressedInfoButton(_ sender: Any) {
+        self.delegate?.viewShowInfo(view: self)
+    }
+    
+    @IBAction func onPressedAddButton(_ sender: Any) {
+        self.delegate?.viewAddObject(view: self)
+    }
+    
+    @IBAction func onPressedSettingsButton(_ sender: Any) {
+        self.delegate?.viewShowSettings(view: self)
     }
 }
