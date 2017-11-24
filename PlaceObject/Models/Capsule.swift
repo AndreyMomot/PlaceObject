@@ -6,12 +6,16 @@
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
 
 class Capsule: VirtualObject {
     
     override init() {
-        super.init(modelName: "capsule", fileExtension: "scn", thumbImageFilename: "capsule", title: "Capsule")
+        let capsule = SCNCapsule(capRadius: 0.025, height: 0.1)
+        capsule.materials.first?.diffuse.contents = UIColor.white
+        let node = SCNNode(geometry: capsule)
+        super.init(model: node, thumbImageFilename: "capsule", title: "Capsule")
     }
     
     required init?(coder aDecoder: NSCoder) {

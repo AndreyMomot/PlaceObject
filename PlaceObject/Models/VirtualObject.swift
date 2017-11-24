@@ -12,8 +12,8 @@ import ARKit
 
 class VirtualObject: SCNNode {
 
-    var modelName: String = ""
-    var fileExtension: String = ""
+    var model: SCNNode!
+//    var fileExtension: String = ""
     var thumbImage: UIImage!
     var title: String = ""
     
@@ -24,11 +24,10 @@ class VirtualObject: SCNNode {
         self.name = "Virtual object root node"
     }
     
-    init(modelName: String, fileExtension: String, thumbImageFilename: String, title: String) {
+    init(model: SCNNode, thumbImageFilename: String, title: String) {
         super.init()
         self.name = "Virtual object root node"
-        self.modelName = modelName
-        self.fileExtension = fileExtension
+        self.model = model
         self.thumbImage = UIImage(named: thumbImageFilename)
         self.title = title
     }
@@ -38,21 +37,21 @@ class VirtualObject: SCNNode {
     }
     
     func loadModel() {
-        guard let virtualObjectScene = SCNScene(named: "\(modelName).\(fileExtension)", inDirectory: "Models.scnassets/\(modelName)") else {
-            return
-        }
-        
-        let wrapperNode = SCNNode()
-        
-        for child in virtualObjectScene.rootNode.childNodes {
-
-            let defaults = UserDefaults.standard
-            if defaults.bool(forKey: .changeColor) {
-                child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-            }
-            wrapperNode.addChildNode(child)
-        }
-        self.addChildNode(wrapperNode)
+//        guard let virtualObjectScene = SCNScene(named: "\(modelName).\(fileExtension)", inDirectory: "Models.scnassets/\(modelName)") else {
+//            return
+//        }
+//
+//        let wrapperNode = SCNNode()
+//
+//        for child in virtualObjectScene.rootNode.childNodes {
+//
+//            let defaults = UserDefaults.standard
+//            if defaults.bool(forKey: .changeColor) {
+//                child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+//            }
+//            wrapperNode.addChildNode(child)
+//        }
+        self.addChildNode(model)
     }
     
     func unloadModel() {

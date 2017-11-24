@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,23 +24,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-m2-yFc">
-                        <rect key="frame" x="223" y="7" width="89" height="30"/>
-                        <state key="normal" title="Some Button"/>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6D9-8s-4RV">
+                        <rect key="frame" x="263" y="6" width="51" height="31"/>
                         <connections>
-                            <action selector="someButtonAction" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WtM-dA-QT6"/>
+                            <action selector="onChangedSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="XHk-tk-hX0"/>
                         </connections>
-                    </button>
+                    </switch>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Unc-m2-yFc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r7s-Pc-je7" secondAttribute="trailing" constant="8" id="6sD-7S-aV0"/>
+                    <constraint firstItem="6D9-8s-4RV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6e8-Ik-10e"/>
                     <constraint firstItem="r7s-Pc-je7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9yX-07-ZQN"/>
-                    <constraint firstAttribute="trailing" secondItem="Unc-m2-yFc" secondAttribute="trailing" constant="8" id="A2q-w4-omb"/>
-                    <constraint firstItem="Unc-m2-yFc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nyJ-UM-mmB"/>
+                    <constraint firstAttribute="trailing" secondItem="6D9-8s-4RV" secondAttribute="trailing" constant="8" id="YwD-bB-aKO"/>
                     <constraint firstItem="r7s-Pc-je7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="qAc-hU-rCA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="settingSwitch" destination="6D9-8s-4RV" id="cNt-A5-hVB"/>
                 <outlet property="titleLabel" destination="r7s-Pc-je7" id="n1u-oP-OJh"/>
             </connections>
         </tableViewCell>

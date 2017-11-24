@@ -6,12 +6,18 @@
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
+import ARKit
 
 class Geosphere: VirtualObject {
     
     override init() {
-        super.init(modelName: "geosphere", fileExtension: "scn", thumbImageFilename: "geosphere", title: "Geosphere")
+        let sphere = SCNSphere(radius: 0.1)
+        sphere.segmentCount = 12
+        sphere.materials.first?.diffuse.contents = UIColor.white
+        let node = SCNNode(geometry: sphere)
+        super.init(model: node, thumbImageFilename: "geosphere", title: "Geosphere")
     }
     
     required init?(coder aDecoder: NSCoder) {

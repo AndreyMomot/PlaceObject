@@ -6,12 +6,16 @@
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
 
 class Torus: VirtualObject {
     
     override init() {
-        super.init(modelName: "torus", fileExtension: "scn", thumbImageFilename: "torus", title: "Torus")
+        let torus = SCNTorus(ringRadius: 0.1, pipeRadius: 0.025)
+        torus.materials.first?.diffuse.contents = UIColor.white
+        let node = SCNNode(geometry: torus)
+        super.init(model: node, thumbImageFilename: "torus", title: "Torus")
     }
     
     required init?(coder aDecoder: NSCoder) {

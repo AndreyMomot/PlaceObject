@@ -6,12 +6,16 @@
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
 
 class Cube: VirtualObject {
     
     override init() {
-        super.init(modelName: "cube", fileExtension: "scn", thumbImageFilename: "cube", title: "Cube")
+        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+        cube.materials.first?.diffuse.contents = UIColor.white
+        let node = SCNNode(geometry: cube)
+        super.init(model: node, thumbImageFilename: "cube", title: "Cube")
     }
     
     required init?(coder aDecoder: NSCoder) {

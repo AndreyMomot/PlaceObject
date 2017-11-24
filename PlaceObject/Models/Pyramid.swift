@@ -6,12 +6,16 @@
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
 
 class Pyramid: VirtualObject {
     
     override init() {
-        super.init(modelName: "pyramid", fileExtension: "scn", thumbImageFilename: "pyramid", title: "Pyramid")
+        let pyramid = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
+        pyramid.materials.first?.diffuse.contents = UIColor.white
+        let node = SCNNode(geometry: pyramid)
+        super.init(model: node, thumbImageFilename: "pyramid", title: "Pyramid")
     }
     
     required init?(coder aDecoder: NSCoder) {

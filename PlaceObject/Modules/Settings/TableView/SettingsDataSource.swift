@@ -23,9 +23,9 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
 
     // MARK: - Private methods
 
-    func configure(cell: SettingsTableViewCell, forItem item: String) {
-        cell.titleLabel.text = item
-    }
+//    func configure(cell: SettingsTableViewCell, forItem item: String) {
+//        cell.titleLabel.text = item
+//    }
 
     // MARK: - UITableViewDataSource
 
@@ -34,16 +34,28 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.model.items.count
+        return 4
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.deque(for: indexPath) as SettingsTableViewCell
         cell.delegate = cellDelegate
+        
+//        if (indexPath.row == 0) {
+//            cell.titleLabel.text = Setting.changeColor.rawValue
+//        } else if (indexPath.row == 1) {
+//            cell.titleLabel.text = Setting.defaultLighting.rawValue
+//        } else if (indexPath.row == 2) {
+//            cell.titleLabel.text = Setting.debugMode.rawValue
+//        } else if (indexPath.row == 3) {
+//            cell.titleLabel.text = Setting.hitTestMode.rawValue
+//        }
+        
 
-        let testItem = self.model.items[indexPath.row];
-        self.configure(cell: cell, forItem: testItem)
+
+//        let testItem = self.model.items[indexPath.row];
+//        self.configure(cell: cell, forItem: testItem)
 
         return cell
     }

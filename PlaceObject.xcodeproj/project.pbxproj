@@ -30,15 +30,6 @@
 		6326A6051FBC87E300487122 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6041FBC87E300487122 /* Utilities.swift */; };
 		6326A6091FBC880600487122 /* HitTestVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6071FBC880600487122 /* HitTestVisualization.swift */; };
 		6326A60A1FBC880600487122 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6081FBC880600487122 /* Gesture.swift */; };
-		6326A6331FBC889600487122 /* AddObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6121FBC889600487122 /* AddObjectBuilder.swift */; };
-		6326A6341FBC889600487122 /* AddObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6131FBC889600487122 /* AddObjectModel.swift */; };
-		6326A6351FBC889600487122 /* AddObjectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6141FBC889600487122 /* AddObjectRouter.swift */; };
-		6326A6361FBC889600487122 /* AddObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6151FBC889600487122 /* AddObjectViewController.swift */; };
-		6326A6371FBC889600487122 /* AddObjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6171FBC889600487122 /* AddObjectDataSource.swift */; };
-		6326A6381FBC889600487122 /* AddObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6191FBC889600487122 /* AddObjectTableViewCell.swift */; };
-		6326A6391FBC889600487122 /* AddObjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6326A61A1FBC889600487122 /* AddObjectTableViewCell.xib */; };
-		6326A63A1FBC889600487122 /* AddObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A61C1FBC889600487122 /* AddObjectView.swift */; };
-		6326A63B1FBC889600487122 /* AddObjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6326A61D1FBC889600487122 /* AddObjectView.xib */; };
 		6326A63C1FBC889600487122 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A61F1FBC889600487122 /* SettingsBuilder.swift */; };
 		6326A63D1FBC889600487122 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6201FBC889600487122 /* SettingsModel.swift */; };
 		6326A63E1FBC889600487122 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6211FBC889600487122 /* SettingsRouter.swift */; };
@@ -54,6 +45,7 @@
 		6326A6481FBC889600487122 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A62F1FBC889600487122 /* TutorialViewController.swift */; };
 		6326A6491FBC889600487122 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6311FBC889600487122 /* TutorialView.swift */; };
 		6326A64A1FBC889600487122 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6326A6321FBC889600487122 /* TutorialView.xib */; };
+		635A8F401FC83B9800E81978 /* AddObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A8F3F1FC83B9800E81978 /* AddObjectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,15 +74,6 @@
 		6326A6041FBC87E300487122 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6326A6071FBC880600487122 /* HitTestVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitTestVisualization.swift; sourceTree = "<group>"; };
 		6326A6081FBC880600487122 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
-		6326A6121FBC889600487122 /* AddObjectBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectBuilder.swift; sourceTree = "<group>"; };
-		6326A6131FBC889600487122 /* AddObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectModel.swift; sourceTree = "<group>"; };
-		6326A6141FBC889600487122 /* AddObjectRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectRouter.swift; sourceTree = "<group>"; };
-		6326A6151FBC889600487122 /* AddObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectViewController.swift; sourceTree = "<group>"; };
-		6326A6171FBC889600487122 /* AddObjectDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectDataSource.swift; sourceTree = "<group>"; };
-		6326A6191FBC889600487122 /* AddObjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectTableViewCell.swift; sourceTree = "<group>"; };
-		6326A61A1FBC889600487122 /* AddObjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddObjectTableViewCell.xib; sourceTree = "<group>"; };
-		6326A61C1FBC889600487122 /* AddObjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectView.swift; sourceTree = "<group>"; };
-		6326A61D1FBC889600487122 /* AddObjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddObjectView.xib; sourceTree = "<group>"; };
 		6326A61F1FBC889600487122 /* SettingsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		6326A6201FBC889600487122 /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		6326A6211FBC889600487122 /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
@@ -106,6 +89,7 @@
 		6326A62F1FBC889600487122 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		6326A6311FBC889600487122 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		6326A6321FBC889600487122 /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
+		635A8F3F1FC83B9800E81978 /* AddObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +146,8 @@
 		6326A5DA1FBC868700487122 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				635A8F411FC83DC600E81978 /* AddNewObject */,
 				6326A5E01FBC870300487122 /* Camera */,
-				6326A6111FBC889600487122 /* AddObject */,
 				6326A61E1FBC889600487122 /* Settings */,
 				6326A62B1FBC889600487122 /* Tutorial */,
 			);
@@ -223,46 +207,6 @@
 				6326A6071FBC880600487122 /* HitTestVisualization.swift */,
 			);
 			path = "UI Elements";
-			sourceTree = "<group>";
-		};
-		6326A6111FBC889600487122 /* AddObject */ = {
-			isa = PBXGroup;
-			children = (
-				6326A6121FBC889600487122 /* AddObjectBuilder.swift */,
-				6326A6131FBC889600487122 /* AddObjectModel.swift */,
-				6326A6141FBC889600487122 /* AddObjectRouter.swift */,
-				6326A6151FBC889600487122 /* AddObjectViewController.swift */,
-				6326A6161FBC889600487122 /* TableView */,
-				6326A61B1FBC889600487122 /* View */,
-			);
-			path = AddObject;
-			sourceTree = "<group>";
-		};
-		6326A6161FBC889600487122 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				6326A6171FBC889600487122 /* AddObjectDataSource.swift */,
-				6326A6181FBC889600487122 /* Cells */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		6326A6181FBC889600487122 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				6326A6191FBC889600487122 /* AddObjectTableViewCell.swift */,
-				6326A61A1FBC889600487122 /* AddObjectTableViewCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		6326A61B1FBC889600487122 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6326A61C1FBC889600487122 /* AddObjectView.swift */,
-				6326A61D1FBC889600487122 /* AddObjectView.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6326A61E1FBC889600487122 /* Settings */ = {
@@ -326,6 +270,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		635A8F411FC83DC600E81978 /* AddNewObject */ = {
+			isa = PBXGroup;
+			children = (
+				635A8F3F1FC83B9800E81978 /* AddObjectViewController.swift */,
+			);
+			path = AddNewObject;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -387,10 +339,8 @@
 			files = (
 				6326A64A1FBC889600487122 /* TutorialView.xib in Resources */,
 				6326A6411FBC889600487122 /* SettingsTableViewCell.xib in Resources */,
-				6326A63B1FBC889600487122 /* AddObjectView.xib in Resources */,
 				6326A5ED1FBC870300487122 /* CameraView.xib in Resources */,
 				6326A5D21FBC864D00487122 /* LaunchScreen.storyboard in Resources */,
-				6326A6391FBC889600487122 /* AddObjectTableViewCell.xib in Resources */,
 				6326A5CF1FBC864D00487122 /* Assets.xcassets in Resources */,
 				6326A6441FBC889600487122 /* SettingsView.xib in Resources */,
 			);
@@ -406,7 +356,6 @@
 				6326A5FE1FBC877100487122 /* Cylinder.swift in Sources */,
 				6326A5E81FBC870300487122 /* CameraBuilder.swift in Sources */,
 				6326A5FB1FBC877100487122 /* Tube.swift in Sources */,
-				6326A6331FBC889600487122 /* AddObjectBuilder.swift in Sources */,
 				6326A5EC1FBC870300487122 /* CameraView.swift in Sources */,
 				6326A6431FBC889600487122 /* SettingsView.swift in Sources */,
 				6326A5FF1FBC877100487122 /* Geosphere.swift in Sources */,
@@ -421,27 +370,22 @@
 				6326A6401FBC889600487122 /* SettingsTableViewCell.swift in Sources */,
 				6326A6051FBC87E300487122 /* Utilities.swift in Sources */,
 				6326A6021FBC877100487122 /* Capsule.swift in Sources */,
-				6326A6351FBC889600487122 /* AddObjectRouter.swift in Sources */,
 				6326A5F91FBC877100487122 /* Cone.swift in Sources */,
 				6326A5C81FBC864D00487122 /* AppDelegate.swift in Sources */,
 				6326A5FC1FBC877100487122 /* VirtualObject.swift in Sources */,
-				6326A6341FBC889600487122 /* AddObjectModel.swift in Sources */,
 				6326A63C1FBC889600487122 /* SettingsBuilder.swift in Sources */,
-				6326A6371FBC889600487122 /* AddObjectDataSource.swift in Sources */,
-				6326A63A1FBC889600487122 /* AddObjectView.swift in Sources */,
 				6326A63F1FBC889600487122 /* SettingsViewController.swift in Sources */,
 				6326A5E91FBC870300487122 /* CameraModel.swift in Sources */,
 				6326A5EA1FBC870300487122 /* CameraRouter.swift in Sources */,
 				6326A5FD1FBC877100487122 /* Cube.swift in Sources */,
 				6326A6421FBC889600487122 /* SettingsDataSource.swift in Sources */,
-				6326A6381FBC889600487122 /* AddObjectTableViewCell.swift in Sources */,
 				6326A6451FBC889600487122 /* TutorialBuilder.swift in Sources */,
 				6326A5FA1FBC877100487122 /* Torus.swift in Sources */,
 				6326A5DC1FBC869E00487122 /* MVCViewController.swift in Sources */,
 				6326A63D1FBC889600487122 /* SettingsModel.swift in Sources */,
 				6326A6011FBC877100487122 /* Pyramid.swift in Sources */,
 				6326A5EB1FBC870300487122 /* CameraViewController.swift in Sources */,
-				6326A6361FBC889600487122 /* AddObjectViewController.swift in Sources */,
+				635A8F401FC83B9800E81978 /* AddObjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,8 +13,8 @@ protocol CameraViewDelegate: NSObjectProtocol {
     
     func viewRefresh(view: CameraViewProtocol)
     func viewShowInfo(view: CameraViewProtocol)
-    func viewAddObject(view: CameraViewProtocol)
-    func viewShowSettings(view: CameraViewProtocol)
+    func viewAddObject(view: CameraViewProtocol, button: UIButton)
+    func viewShowSettings(view: CameraViewProtocol, button: UIButton)
 }
 
 protocol CameraViewProtocol: NSObjectProtocol {
@@ -22,6 +22,11 @@ protocol CameraViewProtocol: NSObjectProtocol {
     weak var delegate: CameraViewDelegate? { get set }
     var sceneView: ARSCNView! { get }
     var statusTextView: UITextView! { get }
+    var trackingState: ARCamera.TrackingState! { get set }
+    var restartExperienceButtonIsEnabled: Bool { get set }
+    var addButton: UIButton! { get }
+    var settingsButton: UIButton! { get }
+    func setStatusText()
 }
 
 class CameraView: UIView, CameraViewProtocol{
@@ -36,14 +41,15 @@ class CameraView: UIView, CameraViewProtocol{
     
     var trackingState: ARCamera.TrackingState!
     weak public var delegate: CameraViewDelegate?
-    
+    var restartExperienceButtonIsEnabled = true
+
     // MARK: - Overrided methods
 
     override public func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    private func setStatusText() {
+    func setStatusText() {
         let text = "Tracking: \(getTrackingDescription())\n"
         statusTextView.text = text
     }
@@ -83,11 +89,11 @@ class CameraView: UIView, CameraViewProtocol{
         self.delegate?.viewShowInfo(view: self)
     }
     
-    @IBAction func onPressedAddButton(_ sender: Any) {
-        self.delegate?.viewAddObject(view: self)
+    @IBAction func onPressedAddButton(_ button: UIButton) {
+        self.delegate?.viewAddObject(view: self, button: button)
     }
     
-    @IBAction func onPressedSettingsButton(_ sender: Any) {
-        self.delegate?.viewShowSettings(view: self)
+    @IBAction func onPressedSettingsButton(_ button: UIButton) {
+        self.delegate?.viewShowSettings(view: self, button: button)
     }
 }

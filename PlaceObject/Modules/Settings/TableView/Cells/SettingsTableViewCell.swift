@@ -12,13 +12,16 @@ class SettingsTableViewCell: UITableViewCell {
 
     weak var delegate: SettingsCellDelegate?
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBOutlet var settingSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     // MARK: - IBAction
-
+    @IBAction func onChangedSwitch(_ sender: Any) {
+        
+    }
     @IBAction func someButtonAction() {
         self.delegate?.cellDidTapSomeButton(cell: self)
     }
