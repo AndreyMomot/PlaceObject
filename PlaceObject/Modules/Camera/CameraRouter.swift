@@ -10,21 +10,18 @@ import UIKit
 
 public class CameraRouter: NSObject {
     
-    // Navigation example method
-    func navigateToSomeScreen(from vc: UIViewController, withBackgroundColor backgroundColor: UIColor) {
+    func showPopover(fromVC: UIViewController, vc: UIViewController, size: CGSize, selector: Selector, title: String, button: UIButton) {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: selector)
+        vc.navigationItem.rightBarButtonItem = barButtonItem
+        vc.title = title
         
-        // Create new screen. Here you should use another Builder to create it.
-        let someScreenVC = UIViewController()
-        // Set passed parameters
-        someScreenVC.view.backgroundColor = backgroundColor
+        let navigationController = UINavigationController(rootViewController: vc)
+        navigationController.modalPresentationStyle = .popover
+        navigationController.popoverPresentationController?.delegate = fromVC as? UIPopoverPresentationControllerDelegate
+        navigationController.preferredContentSize = size
+        fromVC.present(navigationController, animated: true, completion: nil)
         
-        if UI_USER_INTERFACE_IDIOM() == .pad {
-            someScreenVC.modalPresentationStyle = .pageSheet
-            someScreenVC.modalTransitionStyle = .crossDissolve
-            
-            vc.navigationController?.present(someScreenVC, animated: true, completion: nil)
-        } else {
-            vc.navigationController?.pushViewController(someScreenVC, animated: true)
-        }
+        navigationController.popoverPresentationController?.sourceView = button
+        navigationController.popoverPresentationController?.sourceRect = button.bounds
     }
 }

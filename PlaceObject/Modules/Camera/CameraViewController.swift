@@ -13,7 +13,7 @@ import Speech
 
 typealias CameraViewControllerType = MVCViewController<CameraModelProtocol, CameraViewProtocol, CameraRouter>
 
-class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate, AddObjectViewControllerDelegate, SFSpeechRecognizerDelegate {
+class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeechRecognizerDelegate, UIPopoverPresentationControllerDelegate, AddObjectViewControllerDelegate {
     
     // MARK: Initializers
     let session = ARSession()
@@ -506,7 +506,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
 }
 
 // MARK: - CameraViewDelegate
-
 extension CameraViewController: CameraViewDelegate {
 
     func viewRefresh(view: CameraViewProtocol) {
@@ -528,21 +527,24 @@ extension CameraViewController: CameraViewDelegate {
     }
     
     func viewShowInfo(view: CameraViewProtocol, button: UIButton) {
-        let settingsViewController = TutorialBuilder.viewController()
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
-        settingsViewController.navigationItem.rightBarButtonItem = barButtonItem
-        settingsViewController.title = "Tutorial"
-        
-        let navigationController = UINavigationController(rootViewController: settingsViewController)
-        // ToDo: - make this vc semi-transparent
-        navigationController.modalPresentationStyle = .overCurrentContext
-        navigationController.popoverPresentationController?.delegate = self
-        navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
-        self.present(navigationController, animated: true, completion: nil)
-        
-        navigationController.popoverPresentationController?.sourceView = button
-        navigationController.popoverPresentationController?.sourceRect = button.bounds
+        let tutorialViewController = TutorialBuilder.viewController()
+        let size = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
+        self.router?.showPopover(fromVC: tutorialViewController, vc: self, size: size, selector: #selector(dismissSettings), title: "Tutorial", button: button)
+//
+//        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
+//        tutorialViewController.navigationItem.rightBarButtonItem = barButtonItem
+//        tutorialViewController.title = "Tutorial"
+//
+//        let navigationController = UINavigationController(rootViewController: tutorialViewController)
+//        // ToDo: - make this vc semi-transparent
+//        navigationController.modalPresentationStyle = .overCurrentContext
+//        navigationController.popoverPresentationController?.delegate = self
+//        navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
+//        self.present(navigationController, animated: true, completion: nil)
+//
+//        navigationController.popoverPresentationController?.sourceView = button
+//        navigationController.popoverPresentationController?.sourceRect = button.bounds
     }
     
     func viewAddObject(view: CameraViewProtocol, button: UIButton) {
@@ -559,20 +561,24 @@ extension CameraViewController: CameraViewDelegate {
     }
     
     func viewShowSettings(view: CameraViewProtocol, button: UIButton) {
+        
         let settingsViewController = SettingsBuilder.viewController()
-        
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
-        settingsViewController.navigationItem.rightBarButtonItem = barButtonItem
-        settingsViewController.title = "Options"
-        
-        let navigationController = UINavigationController(rootViewController: settingsViewController)
-        navigationController.modalPresentationStyle = .popover
-        navigationController.popoverPresentationController?.delegate = self
-        navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
-        self.present(navigationController, animated: true, completion: nil)
-        
-        navigationController.popoverPresentationController?.sourceView = button
-        navigationController.popoverPresentationController?.sourceRect = button.bounds
+        let size = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
+        self.router?.showPopover(fromVC: settingsViewController, vc: self, size: size, selector: #selector(dismissSettings), title: "Options", button: button)
+//
+//
+//        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
+//        settingsViewController.navigationItem.rightBarButtonItem = barButtonItem
+//        settingsViewController.title = "Options"
+//
+//        let navigationController = UINavigationController(rootViewController: settingsViewController)
+//        navigationController.modalPresentationStyle = .popover
+//        navigationController.popoverPresentationController?.delegate = self
+//        navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
+//        self.present(navigationController, animated: true, completion: nil)
+//
+//        navigationController.popoverPresentationController?.sourceView = button
+//        navigationController.popoverPresentationController?.sourceRect = button.bounds
     }
     
     func viewStartRecord(view: CameraViewProtocol) {
