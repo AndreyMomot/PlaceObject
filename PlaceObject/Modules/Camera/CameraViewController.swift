@@ -29,7 +29,8 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
         super.viewDidLoad()
         
         customView.delegate = self
-        model.delegate = self
+        resetSettings()
+        Setting.registerDefaults()
         setupScene()
         self.customView.setStatusText()
     }
@@ -363,7 +364,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
         updateSettings()
     }
     
-    private func updateSettings() {
+    func updateSettings() {
         let defaults = UserDefaults.standard
         
         changeObjectColor = defaults.bool(for: .changeColor)
@@ -372,7 +373,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
         showHitTestAPIVisualization = defaults.bool(for: .hitTestMode)
     }
     
-    private func resetSettings() {
+    func resetSettings() {
         let defaults = UserDefaults.standard
         
         defaults.set(-1, for: .selectedObjectID)
@@ -410,8 +411,8 @@ extension CameraViewController: CameraViewDelegate {
     
     private func restart() {
         resetVirtualObject()
- //       resetSettings()
- //       updateSettings()
+        resetSettings()
+        updateSettings()
     }
     
     func viewShowInfo(view: CameraViewProtocol) {
@@ -433,10 +434,19 @@ extension CameraViewController: CameraViewDelegate {
     
     func viewShowSettings(view: CameraViewProtocol, button: UIButton) {
         // ToDo: - lauch settings
+        let settingsViewController = SettingsBuilder.viewController()
+        
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
+        settingsViewController.navigationItem.rightBarButtonItem = barButtonItem
+        settingsViewController.title = "Options"
+        
+        let navigationController = UINavigationController(rootViewController: settingsViewController)
+        navigationController.modalPresentationStyle = .popover
+        navigationController.popoverPresentationController?.delegate = self
+        navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
+        self.present(navigationController, animated: true, completion: nil)
+        
+        navigationController.popoverPresentationController?.sourceView = button
+        navigationController.popoverPresentationController?.sourceRect = button.bounds
     }
-}
-
-// MARK: - CameraModelDelegate
-
-extension CameraViewController: CameraModelDelegate {
 }

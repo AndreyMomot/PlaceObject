@@ -2,12 +2,29 @@
 //  SettingsViewController.swift
 //  PlaceObject
 //
-//  Created by Andrei Momot on 11/15/17.
+//  Created by Andrei Momot on 11/27/17.
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
 import UIKit
 
+enum Setting: String {
+    // Bool settings with SettingsViewController switches
+    case changeColor
+    case defaultLighting
+    case debugMode
+    case hitTestMode
+    
+    // Integer state used in virtual object picker
+    case selectedObjectID
+    
+    static func registerDefaults() {
+        UserDefaults.standard.register(defaults: [
+            Setting.defaultLighting.rawValue: true,
+            Setting.selectedObjectID.rawValue: -1
+            ])
+    }
+}
 
 extension UserDefaults {
     func bool(for setting: Setting) -> Bool {
@@ -24,53 +41,37 @@ extension UserDefaults {
     }
 }
 
-public typealias SettingsViewControllerType = MVCViewController<SettingsModelProtocol, SettingsViewProtocol, SettingsRouter>
+typealias SettingsViewControllerType = MVCViewController<SettingsModelProtocol, SettingsViewProtocol, SettingsRouter>
 
-public class SettingsViewController: SettingsViewControllerType, UITableViewDelegate {
-
-    private var dataSource: SettingsDataSource!
-
-    // MARK: - Initializers
-
-    convenience init(withView view: SettingsViewProtocol, model: SettingsModelProtocol, router: SettingsRouter, dataSource: SettingsDataSource) {
-
-        self.init(withView: view, model: model, router: router)
-
-        self.model.delegate = self
-
-        self.dataSource = dataSource
-        self.dataSource.cellDelegate = self
-
-        // your custom code
-    }
-
-    public required init(withView view: SettingsViewProtocol!, model: SettingsModelProtocol!, router: SettingsRouter?) {
+class SettingsViewController: SettingsViewControllerType {
+    
+    // MARK: Initializers
+    
+    required public init(withView view: SettingsViewProtocol!, model: SettingsModelProtocol!, router: SettingsRouter?) {
         super.init(withView: view, model: model, router: router)
     }
-
+    
     // MARK: - View life cycle
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
-        self.customView.delegate = self
-        self.connectTableViewDependencies()
+        
+        customView.delegate = self
+        model.delegate = self
     }
-
-    private func connectTableViewDependencies() {
-
-        self.customView.tableView.delegate = self
-        self.dataSource.regicterNibsForTableView(tableView: self.customView.tableView)
-        self.customView.tableView.dataSource = self.dataSource
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadSettings()
     }
-
-    // MARK: - Table view delegate
-
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        self.router?.navigateToSomeScreen(from: self, withBackgroundColor: UIColor.gray)
+    
+    func loadSettings() {
+        let defaults = UserDefaults.standard
+        
+        self.customView.changeColorSwitch.isOn = defaults.bool(for: .changeColor)
+        self.customView.defaultLightingSwitch.isOn = defaults.bool(for: .defaultLighting)
+        self.customView.debugModeSwitch.isOn = defaults.bool(for: .debugMode)
+        self.customView.hitTestModeSwitch.isOn = defaults.bool(for: .hitTestMode)
     }
 }
 
@@ -78,22 +79,24 @@ public class SettingsViewController: SettingsViewControllerType, UITableViewDele
 
 extension SettingsViewController: SettingsViewDelegate {
 
-    public func viewSomeAction(view: SettingsViewProtocol) {
+    public func viewChangedSwitch(view: SettingsViewProtocol, sender: UISwitch) {
+        let defaults = UserDefaults.standard
+        switch sender {
+        case self.customView.changeColorSwitch:
+            defaults.set(sender.isOn, forKey: Setting.changeColor.rawValue)
+        case self.customView.defaultLightingSwitch:
+            defaults.set(sender.isOn, forKey: Setting.defaultLighting.rawValue)
+        case self.customView.debugModeSwitch:
+            defaults.set(sender.isOn, forKey: Setting.debugMode.rawValue)
+        case self.customView.hitTestModeSwitch:
+            defaults.set(sender.isOn, forKey: Setting.hitTestMode.rawValue)
+        default:
+            break
+        }
     }
 }
 
 // MARK: - SettingsModelDelegate
 
 extension SettingsViewController: SettingsModelDelegate {
-
-    public func modelDidChanged(model: SettingsModelProtocol) {
-    }
-}
-
-// MARK: - SettingsCellDelegate
-
-extension SettingsViewController: SettingsCellDelegate {
-
-    func cellDidTapSomeButton(cell: SettingsTableViewCell) {
-    }
 }

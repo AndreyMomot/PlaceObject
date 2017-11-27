@@ -2,50 +2,32 @@
 //  SettingsModel.swift
 //  PlaceObject
 //
-//  Created by Andrei Momot on 11/15/17.
+//  Created by Andrei Momot on 11/27/17.
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
 import UIKit
 
-enum Setting: String {
-    // Bool settings with SettingsViewController switches
-    case changeColor
-    case defaultLighting
-    case debugMode
-    case hitTestMode
+protocol SettingsModelDelegate: NSObjectProtocol {
     
-    // Integer state used in virtual object picker
-    case selectedObjectID
-    
-    static func registerDefaults() {
-        UserDefaults.standard.register(defaults: [
-            Setting.defaultLighting.rawValue: true,
-            Setting.selectedObjectID.rawValue: -1
-            ])
-    }
 }
 
-public protocol SettingsModelDelegate: NSObjectProtocol {
-
-    func modelDidChanged(model: SettingsModelProtocol)
-}
-
-public protocol SettingsModelProtocol: NSObjectProtocol {
-
+protocol SettingsModelProtocol: NSObjectProtocol {
+    
     weak var delegate: SettingsModelDelegate? { get set }
 }
 
-public class SettingsModel: NSObject, SettingsModelProtocol {
-
-    override init() {
-        super.init()
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+class SettingsModel: NSObject, SettingsModelProtocol {
+    
     // MARK: - SettingsModel methods
 
     weak public var delegate: SettingsModelDelegate?
+    
+    /** Implement SettingsModel methods here */
+    
+    
+    // MARK: - Private methods
+    
+    /** Implement private methods here */
+    
 }

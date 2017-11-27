@@ -11,26 +11,86 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="QRC-gi-WgL" customClass="SettingsView" customModule="PlaceObject">
+        <view contentMode="scaleToFill" id="QRC-gi-WgL" customClass="SettingsView" customModule="PlaceObject" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-Mz-sTk">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QY8-Le-s6x">
+                    <rect key="frame" x="255" y="45" width="51" height="31"/>
+                    <connections>
+                        <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="CfH-Ru-W3B"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Object Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8I-21-w1W">
+                    <rect key="frame" x="16" y="50" width="160.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUt-Af-JZs">
+                    <rect key="frame" x="255" y="96" width="51" height="31"/>
+                    <connections>
+                        <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="f6a-yo-Bvh"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Lightning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl6-h4-Uaj">
+                    <rect key="frame" x="16" y="101" width="131" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6zi-sq-7Lr">
+                    <rect key="frame" x="255" y="147" width="51" height="31"/>
+                    <connections>
+                        <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="jD7-bL-xWt"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Visualization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deS-hi-Dmd">
+                    <rect key="frame" x="16" y="152" width="151.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit Test Visualization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgi-EG-Owh">
+                    <rect key="frame" x="16" y="203" width="159" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p99-Sf-m3E">
+                    <rect key="frame" x="255" y="198" width="51" height="31"/>
+                    <connections>
+                        <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="3Yt-LW-OHW"/>
+                    </connections>
+                </switch>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vAB-Mz-sTk" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" id="Qwe-SP-v2a"/>
-                <constraint firstAttribute="trailing" secondItem="vAB-Mz-sTk" secondAttribute="trailing" id="gci-2f-JTL"/>
-                <constraint firstAttribute="bottom" secondItem="vAB-Mz-sTk" secondAttribute="bottom" id="pso-DU-kpQ"/>
-                <constraint firstItem="vAB-Mz-sTk" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" id="sG2-uY-1Od"/>
+                <constraint firstAttribute="trailing" secondItem="rUt-Af-JZs" secondAttribute="trailing" constant="16" id="FS7-Rl-p2Z"/>
+                <constraint firstItem="c8I-21-w1W" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="G16-kJ-F8t"/>
+                <constraint firstItem="QY8-Le-s6x" firstAttribute="centerY" secondItem="c8I-21-w1W" secondAttribute="centerY" id="Jh3-NJ-uDL"/>
+                <constraint firstItem="6zi-sq-7Lr" firstAttribute="centerY" secondItem="deS-hi-Dmd" secondAttribute="centerY" id="P7q-z7-xbU"/>
+                <constraint firstItem="QY8-Le-s6x" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" constant="45" id="TYn-pr-ZPy"/>
+                <constraint firstAttribute="trailing" secondItem="QY8-Le-s6x" secondAttribute="trailing" constant="16" id="YuB-bl-hbc"/>
+                <constraint firstItem="Qgi-EG-Owh" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="Z36-Id-FuP"/>
+                <constraint firstAttribute="trailing" secondItem="6zi-sq-7Lr" secondAttribute="trailing" constant="16" id="Zt2-Zo-yQ4"/>
+                <constraint firstAttribute="trailing" secondItem="p99-Sf-m3E" secondAttribute="trailing" constant="16" id="aso-8F-fx4"/>
+                <constraint firstItem="rUt-Af-JZs" firstAttribute="centerY" secondItem="Rl6-h4-Uaj" secondAttribute="centerY" id="iNP-kF-DA1"/>
+                <constraint firstItem="p99-Sf-m3E" firstAttribute="top" secondItem="6zi-sq-7Lr" secondAttribute="bottom" constant="20" id="jrk-49-k9S"/>
+                <constraint firstItem="deS-hi-Dmd" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="koV-BO-Vos"/>
+                <constraint firstItem="p99-Sf-m3E" firstAttribute="centerY" secondItem="Qgi-EG-Owh" secondAttribute="centerY" id="nB9-wV-fr2"/>
+                <constraint firstItem="rUt-Af-JZs" firstAttribute="top" secondItem="QY8-Le-s6x" secondAttribute="bottom" constant="20" id="ngU-KQ-XlC"/>
+                <constraint firstItem="Rl6-h4-Uaj" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="uKv-dF-Kcn"/>
+                <constraint firstItem="6zi-sq-7Lr" firstAttribute="top" secondItem="rUt-Af-JZs" secondAttribute="bottom" constant="20" id="xn2-D6-zix"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <connections>
-                <outlet property="tableView" destination="vAB-Mz-sTk" id="LT1-Ll-avq"/>
+                <outlet property="changeColorSwitch" destination="QY8-Le-s6x" id="BjH-jF-xyY"/>
+                <outlet property="debugModeSwitch" destination="6zi-sq-7Lr" id="qcm-rg-krp"/>
+                <outlet property="defaultLightingSwitch" destination="rUt-Af-JZs" id="6Ef-bC-1rN"/>
+                <outlet property="hitTestModeSwitch" destination="p99-Sf-m3E" id="1mc-OM-GyM"/>
             </connections>
-            <point key="canvasLocation" x="238.5" y="-71.5"/>
+            <point key="canvasLocation" x="239" y="-71"/>
         </view>
     </objects>
 </document>

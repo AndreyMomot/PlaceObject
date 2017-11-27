@@ -45,10 +45,10 @@ class VirtualObject: SCNNode {
 //
 //        for child in virtualObjectScene.rootNode.childNodes {
 //
-//            let defaults = UserDefaults.standard
-//            if defaults.bool(forKey: .changeColor) {
-//                child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-//            }
+            let defaults = UserDefaults.standard
+            if defaults.bool(for: .changeColor) {
+                model.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+            }
 //            wrapperNode.addChildNode(child)
 //        }
         self.addChildNode(model)
