@@ -9,8 +9,6 @@
 import UIKit
 
 public protocol TutorialViewDelegate: NSObjectProtocol {
-
-    func viewSomeAction(view: TutorialViewProtocol)
 }
 
 public protocol TutorialViewProtocol: NSObjectProtocol {
@@ -22,23 +20,10 @@ public protocol TutorialViewProtocol: NSObjectProtocol {
 public class TutorialView: UIView, TutorialViewProtocol{
 
     // MARK: - TutorialView interface methods
-
     weak public var delegate: TutorialViewDelegate?
     @IBOutlet weak public var tableView: UITableView!
 
-    // add view private properties/outlets/methods here
-
-    // MARK: - IBActions
-
-    @IBAction func someButtonAction() {
-        self.delegate?.viewSomeAction(view: self)
-    }
-
-    // MARK: - Overrided methods
-
     override public func awakeFromNib() {
         super.awakeFromNib()
-
-        // setup view and table view programmatically here
     }
 }

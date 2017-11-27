@@ -535,7 +535,8 @@ extension CameraViewController: CameraViewDelegate {
         settingsViewController.title = "Tutorial"
         
         let navigationController = UINavigationController(rootViewController: settingsViewController)
-        navigationController.modalPresentationStyle = .popover
+        // ToDo: - make this vc semi-transparent
+        navigationController.modalPresentationStyle = .overCurrentContext
         navigationController.popoverPresentationController?.delegate = self
         navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
         self.present(navigationController, animated: true, completion: nil)

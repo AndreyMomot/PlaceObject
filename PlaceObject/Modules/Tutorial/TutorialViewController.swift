@@ -61,9 +61,6 @@ public class TutorialViewController: TutorialViewControllerType, UITableViewDele
 // MARK: - TutorialViewDelegate
 
 extension TutorialViewController: TutorialViewDelegate {
-
-    public func viewSomeAction(view: TutorialViewProtocol) {
-    }
 }
 
 // MARK: - TutorialModelDelegate
