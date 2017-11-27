@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="QRC-gi-WgL" customClass="TutorialView" customModule="PlaceObject" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="QRC-gi-WgL" customClass="TutorialView" customModule="PlaceObject">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-Mz-sTk">
+                    <rect key="frame" x="0.0" y="78" width="320" height="490"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="To manipulate with Scene you have to press Record Button and say any command from the list below:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BJc-aZ-xQi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="v2E-JY-Q3c"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="239" y="-71"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="BJc-aZ-xQi" secondAttribute="trailing" id="31C-ew-mhl"/>
+                <constraint firstAttribute="trailing" secondItem="vAB-Mz-sTk" secondAttribute="trailing" id="6Df-Nn-E0K"/>
+                <constraint firstItem="vAB-Mz-sTk" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" id="Nh2-fC-Xe7"/>
+                <constraint firstItem="BJc-aZ-xQi" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" id="Rlo-rE-gXy"/>
+                <constraint firstItem="vAB-Mz-sTk" firstAttribute="top" secondItem="BJc-aZ-xQi" secondAttribute="bottom" constant="8" id="dcN-qJ-6jI"/>
+                <constraint firstAttribute="bottom" secondItem="vAB-Mz-sTk" secondAttribute="bottom" id="f0o-eG-qhK"/>
+                <constraint firstItem="BJc-aZ-xQi" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" id="qny-Ct-C8l"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="vAB-Mz-sTk" id="LT1-Ll-avq"/>
+            </connections>
+            <point key="canvasLocation" x="238" y="-72"/>
         </view>
     </objects>
 </document>

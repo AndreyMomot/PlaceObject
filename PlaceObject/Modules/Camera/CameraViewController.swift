@@ -508,7 +508,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
 // MARK: - CameraViewDelegate
 
 extension CameraViewController: CameraViewDelegate {
-    
+
     func viewRefresh(view: CameraViewProtocol) {
         DispatchQueue.main.async {
             self.customView.restartExperienceButtonIsEnabled = false
@@ -527,8 +527,21 @@ extension CameraViewController: CameraViewDelegate {
         updateSettings()
     }
     
-    func viewShowInfo(view: CameraViewProtocol) {
+    func viewShowInfo(view: CameraViewProtocol, button: UIButton) {
+        let settingsViewController = TutorialBuilder.viewController()
         
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
+        settingsViewController.navigationItem.rightBarButtonItem = barButtonItem
+        settingsViewController.title = "Tutorial"
+        
+        let navigationController = UINavigationController(rootViewController: settingsViewController)
+        navigationController.modalPresentationStyle = .popover
+        navigationController.popoverPresentationController?.delegate = self
+        navigationController.preferredContentSize = CGSize(width: self.customView.sceneView.bounds.size.width - 20, height: self.customView.sceneView.bounds.size.height - 50)
+        self.present(navigationController, animated: true, completion: nil)
+        
+        navigationController.popoverPresentationController?.sourceView = button
+        navigationController.popoverPresentationController?.sourceRect = button.bounds
     }
     
     func viewAddObject(view: CameraViewProtocol, button: UIButton) {

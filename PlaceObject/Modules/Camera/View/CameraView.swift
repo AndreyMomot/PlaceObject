@@ -12,7 +12,7 @@ import ARKit
 protocol CameraViewDelegate: NSObjectProtocol {
     
     func viewRefresh(view: CameraViewProtocol)
-    func viewShowInfo(view: CameraViewProtocol)
+    func viewShowInfo(view: CameraViewProtocol, button: UIButton)
     func viewAddObject(view: CameraViewProtocol, button: UIButton)
     func viewShowSettings(view: CameraViewProtocol, button: UIButton)
     func viewStartRecord(view: CameraViewProtocol)
@@ -90,8 +90,8 @@ class CameraView: UIView, CameraViewProtocol{
         self.delegate?.viewRefresh(view: self)
     }
     
-    @IBAction func onPressedInfoButton(_ sender: Any) {
-        self.delegate?.viewShowInfo(view: self)
+    @IBAction func onPressedInfoButton(_ button: UIButton) {
+        self.delegate?.viewShowInfo(view: self, button: button)
     }
     
     @IBAction func onPressedAddButton(_ button: UIButton) {
