@@ -15,6 +15,7 @@ protocol CameraViewDelegate: NSObjectProtocol {
     func viewShowInfo(view: CameraViewProtocol)
     func viewAddObject(view: CameraViewProtocol, button: UIButton)
     func viewShowSettings(view: CameraViewProtocol, button: UIButton)
+    func viewStartRecord(view: CameraViewProtocol)
 }
 
 protocol CameraViewProtocol: NSObjectProtocol {
@@ -26,6 +27,8 @@ protocol CameraViewProtocol: NSObjectProtocol {
     var restartExperienceButtonIsEnabled: Bool { get set }
     var addButton: UIButton! { get }
     var settingsButton: UIButton! { get }
+    var speechRecognitionLabel: UILabel! { get set }
+    var recordSpeechButton: UIButton! { get }
     func setStatusText()
 }
 
@@ -38,6 +41,8 @@ class CameraView: UIView, CameraViewProtocol{
     @IBOutlet var infoButton: UIButton!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var settingsButton: UIButton!
+    @IBOutlet var speechRecognitionLabel: UILabel!
+    @IBOutlet var recordSpeechButton: UIButton!
     
     var trackingState: ARCamera.TrackingState!
     weak public var delegate: CameraViewDelegate?
@@ -95,5 +100,9 @@ class CameraView: UIView, CameraViewProtocol{
     
     @IBAction func onPressedSettingsButton(_ button: UIButton) {
         self.delegate?.viewShowSettings(view: self, button: button)
+    }
+    @IBAction func onPressedRecordSpeechButton(_ sender: Any) {
+        self.speechRecognitionLabel.text = "Please say a command"
+        self.delegate?.viewStartRecord(view: self)
     }
 }

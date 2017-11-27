@@ -41,5 +41,9 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>PlaceObjects needs to use you Camera!</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App needs to use your microphone</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Allow app to use speech recognition</string>
 </dict>
 </plist>

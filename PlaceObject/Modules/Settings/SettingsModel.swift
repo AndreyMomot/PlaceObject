@@ -8,6 +8,24 @@
 
 import UIKit
 
+enum Setting: String {
+    // Bool settings with SettingsViewController switches
+    case changeColor
+    case defaultLighting
+    case debugMode
+    case hitTestMode
+    
+    // Integer state used in virtual object picker
+    case selectedObjectID
+    
+    static func registerDefaults() {
+        UserDefaults.standard.register(defaults: [
+            Setting.defaultLighting.rawValue: true,
+            Setting.selectedObjectID.rawValue: -1
+            ])
+    }
+}
+
 protocol SettingsModelDelegate: NSObjectProtocol {
     
 }

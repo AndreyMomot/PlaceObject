@@ -33,6 +33,7 @@ class TutorialViewController: TutorialViewControllerType {
 extension TutorialViewController: TutorialViewDelegate {
 
     public func viewSomeAction(view: TutorialViewProtocol) {
+
     }
 }
 

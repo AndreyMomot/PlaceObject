@@ -9,10 +9,11 @@
 import UIKit
 import SceneKit
 import ARKit
+import Speech
 
 typealias CameraViewControllerType = MVCViewController<CameraModelProtocol, CameraViewProtocol, CameraRouter>
 
-class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate, AddObjectViewControllerDelegate {
+class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate, AddObjectViewControllerDelegate, SFSpeechRecognizerDelegate {
     
     // MARK: Initializers
     let session = ARSession()
@@ -33,6 +34,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
         Setting.registerDefaults()
         setupScene()
         self.customView.setStatusText()
+        speechAuth()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -391,6 +393,116 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, UIPopov
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
 //        updateSettings()
     }
+    
+    // MARK: - Speech Recognition
+    let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
+    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    var recognitionTask: SFSpeechRecognitionTask?
+    let audioEngine = AVAudioEngine()
+    
+    // MARK: - Speech Recognition Authorization Request
+    func speechAuth() {
+        speechRecognizer?.delegate = self
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+            
+            self.customView.recordSpeechButton.isEnabled = false
+            var isButtonEnabled = false
+            
+            switch authStatus {
+            case .authorized:
+                isButtonEnabled = true
+                
+            case .denied:
+                isButtonEnabled = false
+                print("User denied access to speech recognition")
+                
+            case .restricted:
+                isButtonEnabled = false
+                print("Speech recognition restricted in this device")
+                
+            case .notDetermined:
+                isButtonEnabled = false
+                print("Speech recognition not yet authorized")
+            }
+            
+            OperationQueue.main.addOperation {
+                self.customView.recordSpeechButton.isEnabled = isButtonEnabled
+            }
+        }
+    }
+    
+    func startRecording() {
+        
+        if recognitionTask != nil {
+            recognitionTask?.cancel()
+            recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error")
+        }
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
+        guard let inputNode = audioEngine.inputNode else {
+            fatalError("Audio engine has no input node")
+        }
+        
+        guard let recognitionRequest = recognitionRequest else {
+            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+        }
+        
+        recognitionRequest.shouldReportPartialResults = true
+        
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
+            
+            var isFinal = false
+            
+            if result != nil {
+                
+                self.customView.speechRecognitionLabel.text = result!.bestTranscription.formattedString
+                isFinal = (result?.isFinal)!
+            }
+            
+            if error != nil || isFinal {
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+                
+                self.customView.recordSpeechButton.isEnabled = true
+            }
+        })
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        do {
+            try audioEngine.start()
+        } catch {
+            print("audioEngine couldn't start because of an error.")
+        }
+        
+        self.customView.speechRecognitionLabel.text = "Please, say a command!"
+    }
+    
+    // MARK: - SFSpeechRecognizerDelegate
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        if available {
+            self.customView.recordSpeechButton.isEnabled = true
+        } else {
+            self.customView.recordSpeechButton.isEnabled = false
+        }
+    }
 }
 
 // MARK: - CameraViewDelegate
@@ -433,7 +545,6 @@ extension CameraViewController: CameraViewDelegate {
     }
     
     func viewShowSettings(view: CameraViewProtocol, button: UIButton) {
-        // ToDo: - lauch settings
         let settingsViewController = SettingsBuilder.viewController()
         
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSettings))
@@ -449,4 +560,15 @@ extension CameraViewController: CameraViewDelegate {
         navigationController.popoverPresentationController?.sourceView = button
         navigationController.popoverPresentationController?.sourceRect = button.bounds
     }
+    
+    func viewStartRecord(view: CameraViewProtocol) {
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            self.customView.recordSpeechButton.isEnabled = false
+        } else {
+            startRecording()
+        }
+    }
 }
+

@@ -16,10 +16,10 @@ protocol SettingsViewDelegate: NSObjectProtocol {
 protocol SettingsViewProtocol: NSObjectProtocol {
     
     weak var delegate: SettingsViewDelegate? { get set }
-    var changeColorSwitch: UISwitch! { get set }
-    var defaultLightingSwitch: UISwitch! { get set }
-    var debugModeSwitch: UISwitch! { get set }
-    var hitTestModeSwitch: UISwitch! { get set }
+    var changeColorSwitch: UISwitch! { get }
+    var defaultLightingSwitch: UISwitch! { get }
+    var debugModeSwitch: UISwitch! { get }
+    var hitTestModeSwitch: UISwitch! { get }
 }
 
 class SettingsView: UIView, SettingsViewProtocol{

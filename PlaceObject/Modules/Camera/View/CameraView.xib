@@ -72,10 +72,29 @@
                         <action selector="onPressedSettingsButton:" destination="QRC-gi-WgL" eventType="touchUpInside" id="Apn-ha-sY9"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-6U-ZuO">
+                    <rect key="frame" x="16" y="599" width="295" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8a-Uo-qhO">
+                    <rect key="frame" x="319" y="559" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="OCN-y3-Z2F"/>
+                        <constraint firstAttribute="width" constant="40" id="rBT-Zi-HTJ"/>
+                    </constraints>
+                    <state key="normal" image="record"/>
+                    <connections>
+                        <action selector="onPressedRecordSpeechButton:" destination="QRC-gi-WgL" eventType="touchUpInside" id="kSg-uW-ZGv"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="f8a-Uo-qhO" secondAttribute="trailing" constant="16" id="2JK-TM-HIq"/>
                 <constraint firstAttribute="bottom" secondItem="k5E-1S-80K" secondAttribute="bottom" id="2bG-YO-eQk"/>
+                <constraint firstItem="bfi-Fg-JPJ" firstAttribute="top" secondItem="LDz-6U-ZuO" secondAttribute="bottom" constant="8" id="DwY-Vl-fkP"/>
                 <constraint firstItem="XzS-uN-Unh" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" id="EcJ-nZ-HUo"/>
                 <constraint firstItem="sJe-YH-hZo" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="KNU-LB-xMX"/>
                 <constraint firstItem="gHd-UC-Buk" firstAttribute="leading" secondItem="XzS-uN-Unh" secondAttribute="trailing" constant="5" id="MRQ-cE-xli"/>
@@ -87,6 +106,9 @@
                 <constraint firstAttribute="trailing" secondItem="tIL-0M-q3m" secondAttribute="trailing" constant="16" id="iDZ-la-Cwv"/>
                 <constraint firstItem="bfi-Fg-JPJ" firstAttribute="centerX" secondItem="QRC-gi-WgL" secondAttribute="centerX" id="ilw-ai-IeW"/>
                 <constraint firstItem="gHd-UC-Buk" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" constant="20" id="kXe-9V-0P9"/>
+                <constraint firstItem="f8a-Uo-qhO" firstAttribute="leading" secondItem="LDz-6U-ZuO" secondAttribute="trailing" constant="8" id="kbG-Ge-VZp"/>
+                <constraint firstItem="tIL-0M-q3m" firstAttribute="top" secondItem="f8a-Uo-qhO" secondAttribute="bottom" constant="8" id="lkH-44-pq5"/>
+                <constraint firstItem="LDz-6U-ZuO" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="mBg-C7-A9j"/>
                 <constraint firstAttribute="bottom" secondItem="bfi-Fg-JPJ" secondAttribute="bottom" constant="20" id="ogc-gt-9fZ"/>
                 <constraint firstItem="k5E-1S-80K" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" id="ros-Is-IBD"/>
                 <constraint firstAttribute="bottom" secondItem="tIL-0M-q3m" secondAttribute="bottom" constant="20" id="vwp-YT-Hly"/>
@@ -95,17 +117,20 @@
             <connections>
                 <outlet property="addButton" destination="bfi-Fg-JPJ" id="f9x-b0-Llj"/>
                 <outlet property="infoButton" destination="sJe-YH-hZo" id="kPc-Xy-iLl"/>
+                <outlet property="recordSpeechButton" destination="f8a-Uo-qhO" id="afu-Px-x6E"/>
                 <outlet property="refreshButton" destination="gHd-UC-Buk" id="9Ml-sC-mTh"/>
                 <outlet property="sceneView" destination="k5E-1S-80K" id="KCM-MG-emr"/>
                 <outlet property="settingsButton" destination="tIL-0M-q3m" id="hT8-vS-juZ"/>
+                <outlet property="speechRecognitionLabel" destination="LDz-6U-ZuO" id="e40-L0-sj1"/>
                 <outlet property="statusTextView" destination="XzS-uN-Unh" id="G9W-pg-Oje"/>
             </connections>
-            <point key="canvasLocation" x="239" y="-71"/>
+            <point key="canvasLocation" x="238.5" y="-71.5"/>
         </view>
     </objects>
     <resources>
         <image name="add" width="48" height="48"/>
         <image name="info" width="30" height="30"/>
+        <image name="record" width="128" height="128"/>
         <image name="refresh" width="20" height="23"/>
         <image name="settings" width="41" height="48"/>
     </resources>

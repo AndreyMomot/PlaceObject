@@ -8,39 +8,6 @@
 
 import UIKit
 
-enum Setting: String {
-    // Bool settings with SettingsViewController switches
-    case changeColor
-    case defaultLighting
-    case debugMode
-    case hitTestMode
-    
-    // Integer state used in virtual object picker
-    case selectedObjectID
-    
-    static func registerDefaults() {
-        UserDefaults.standard.register(defaults: [
-            Setting.defaultLighting.rawValue: true,
-            Setting.selectedObjectID.rawValue: -1
-            ])
-    }
-}
-
-extension UserDefaults {
-    func bool(for setting: Setting) -> Bool {
-        return bool(forKey: setting.rawValue)
-    }
-    func set(_ bool: Bool, for setting: Setting) {
-        set(bool, forKey: setting.rawValue)
-    }
-    func integer(for setting: Setting) -> Int {
-        return integer(forKey: setting.rawValue)
-    }
-    func set(_ integer: Int, for setting: Setting) {
-        set(integer, forKey: setting.rawValue)
-    }
-}
-
 typealias SettingsViewControllerType = MVCViewController<SettingsModelProtocol, SettingsViewProtocol, SettingsRouter>
 
 class SettingsViewController: SettingsViewControllerType {
