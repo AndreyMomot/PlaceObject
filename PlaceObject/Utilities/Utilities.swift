@@ -229,7 +229,7 @@ func createCrossNode(size: CGFloat = 0.01, color: UIColor = UIColor.green, horiz
         fileName = "crosshair_yellow"
     }
     
-    let path = Bundle.main.path(forResource: fileName, ofType: "png", inDirectory: "Models.scnassets")!
+    let path = Bundle.main.path(forResource: fileName, ofType: "png")!
     let image = UIImage(contentsOfFile: path)
     
     let planeNode = SCNNode(geometry: createSquarePlane(size: planeDimension, contents: image))
