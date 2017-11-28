@@ -33,7 +33,7 @@ public class TutorialModel: NSObject, TutorialModelProtocol {
     }
 
     func getCommands() -> [String] {
-        return ["Up", "Down", "Left", "Right", "Rotate", "Scale Up", "Scale Down", "Red", "Black"]
+        return ["⬅️ - 'Move Left'", "➡️ - 'Move Right'", "🔄 - 'Rotate'", "⏫ - 'Scale Up'", "⏬ - 'Scale Down'", "🔴 - 'Red'", "⚪️ - 'White'"]
     }
 
     // MARK: - TutorialModel methods
