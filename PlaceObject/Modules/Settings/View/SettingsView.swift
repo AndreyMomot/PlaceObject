@@ -28,18 +28,16 @@ class SettingsView: UIView, SettingsViewProtocol{
     @IBOutlet var defaultLightingSwitch: UISwitch!
     @IBOutlet var debugModeSwitch: UISwitch!
     @IBOutlet var hitTestModeSwitch: UISwitch!
+    
     // MARK: - SettingsView interface methods
-
     weak public var delegate: SettingsViewDelegate?
     
     // MARK: - Overrided methods
-
     override public func awakeFromNib() {
         super.awakeFromNib()
     }
     
     // MARK: - IBActions
-    
     @IBAction func onChangedSwitch(_ sender: UISwitch) {
         self.delegate?.viewChangedSwitch(view: self, sender: sender)
     }

@@ -26,9 +26,7 @@ enum Setting: String {
     }
 }
 
-protocol SettingsModelDelegate: NSObjectProtocol {
-    
-}
+protocol SettingsModelDelegate: NSObjectProtocol {}
 
 protocol SettingsModelProtocol: NSObjectProtocol {
     
@@ -38,14 +36,5 @@ protocol SettingsModelProtocol: NSObjectProtocol {
 class SettingsModel: NSObject, SettingsModelProtocol {
     
     // MARK: - SettingsModel methods
-
     weak public var delegate: SettingsModelDelegate?
-    
-    /** Implement SettingsModel methods here */
-    
-    
-    // MARK: - Private methods
-    
-    /** Implement private methods here */
-    
 }

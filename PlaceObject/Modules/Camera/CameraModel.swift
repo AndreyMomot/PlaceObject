@@ -8,12 +8,8 @@
 
 import UIKit
 
-protocol CameraModelDelegate: NSObjectProtocol {
-    
-}
+protocol CameraModelDelegate: NSObjectProtocol {}
 
-protocol CameraModelProtocol: NSObjectProtocol {
-}
+protocol CameraModelProtocol: NSObjectProtocol {}
 
-class CameraModel: NSObject, CameraModelProtocol {
-}
+class CameraModel: NSObject, CameraModelProtocol {}

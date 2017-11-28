@@ -8,10 +8,7 @@
 
 import UIKit
 
-public protocol TutorialModelDelegate: NSObjectProtocol {
-
-    func modelDidChanged(model: TutorialModelProtocol)
-}
+public protocol TutorialModelDelegate: NSObjectProtocol {}
 
 public protocol TutorialModelProtocol: NSObjectProtocol {
 
@@ -37,15 +34,6 @@ public class TutorialModel: NSObject, TutorialModelProtocol {
     }
 
     // MARK: - TutorialModel methods
-
     weak public var delegate: TutorialModelDelegate?
     public private(set) var commands: [String]
-
-    /** Implement TutorialModel methods here */
-
-
-    // MARK: - Private methods
-
-    /** Implement private methods here */
-
 }

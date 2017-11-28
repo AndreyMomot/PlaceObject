@@ -8,5 +8,4 @@
 
 import UIKit
 
-public class TutorialRouter: NSObject {
-}
+public class TutorialRouter: NSObject {}

@@ -25,7 +25,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - View life cycle
-
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +75,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - ARSCNViewDelegate
-    
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
             self.customView.setStatusText()
@@ -89,7 +87,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
         virtualObject.position = hitPosition
         self.customView.sceneView.scene.rootNode.addChildNode(virtualObject)
     }
-
+    
     // MARK: - Add Object Implementation
     private func loadVirtualObject(at index: Int) {
         resetVirtualObject()
@@ -105,7 +103,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - Gesture Recognizers
-    
     var currentGesture: Gesture?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -144,7 +141,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - Virtual Object Manipulation
-    
     // Use average of recent virtual object distances to avoid rapid changes in object scale.
     var recentVirtualObjectDistances = [CGFloat]()
     
@@ -293,7 +289,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - Enable Default Lighting
-    
     func toggleDefaultLighting(_ enabled: Bool) {
         
         if enabled {
@@ -304,7 +299,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - VirtualObjectSelectionViewControllerDelegate
-    
     func addObjectViewController(_: AddObjectViewController, didSelectObjectAt index: Int) {
         loadVirtualObject(at: index)
     }
@@ -328,7 +322,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     }
     
     // MARK: - Debug Visualizations
-    
     private var showDebugVisuals: Bool = UserDefaults.standard.bool(for: .debugMode) {
         didSet {
             
@@ -416,7 +409,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     func speechAuth() {
         self.customView.recordSpeechButton.isEnabled = false
         speechRecognizer?.delegate = self
-
+        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             
             var isButtonEnabled = false
@@ -518,7 +511,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
             self.customView.recordSpeechButton.isEnabled = false
         }
     }
- 
+    
     // MARK: - Command Recognition
     func makeMovements(command: String) {
         let commandsArray = ["move left", "move right", "rotate", "scale up", "scale down", "red", "white"]
@@ -541,11 +534,11 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
                     virtualObject.runAction(scaleDown)
                 } else if command == commandsArray[5] {
                     for child in virtualObject.childNodes {
-                    child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                        child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
                     }
                 } else if command == commandsArray[6] {
                     for child in virtualObject.childNodes {
-                    child.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+                        child.geometry?.firstMaterial?.diffuse.contents = UIColor.white
                     }
                 }
             }
@@ -555,7 +548,7 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
 
 // MARK: - CameraViewDelegate
 extension CameraViewController: CameraViewDelegate {
-
+    
     func viewRefresh(view: CameraViewProtocol) {
         DispatchQueue.main.async {
             self.customView.restartExperienceButtonIsEnabled = false
@@ -602,7 +595,7 @@ extension CameraViewController: CameraViewDelegate {
     }
     
     func viewStartRecord(view: CameraViewProtocol) {
-
+        
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()

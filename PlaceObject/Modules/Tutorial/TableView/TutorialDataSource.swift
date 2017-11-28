@@ -22,13 +22,11 @@ class TutorialDataSource: NSObject, UITableViewDataSource {
     }
 
     // MARK: - Private methods
-
     func configure(cell: TutorialTableViewCell, forItem item: String) {
         cell.titleLabel.text = item
     }
 
     // MARK: - UITableViewDataSource
-
     internal func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

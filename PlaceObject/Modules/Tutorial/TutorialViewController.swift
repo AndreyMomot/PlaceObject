@@ -15,7 +15,6 @@ public class TutorialViewController: TutorialViewControllerType, UITableViewDele
     private var dataSource: TutorialDataSource!
 
     // MARK: - Initializers
-
     convenience init(withView view: TutorialViewProtocol, model: TutorialModelProtocol, router: TutorialRouter, dataSource: TutorialDataSource) {
 
         self.init(withView: view, model: model, router: router)
@@ -24,8 +23,6 @@ public class TutorialViewController: TutorialViewControllerType, UITableViewDele
 
         self.dataSource = dataSource
         self.dataSource.cellDelegate = self
-
-        // your custom code
     }
 
     public required init(withView view: TutorialViewProtocol!, model: TutorialModelProtocol!, router: TutorialRouter?) {
@@ -33,7 +30,6 @@ public class TutorialViewController: TutorialViewControllerType, UITableViewDele
     }
 
     // MARK: - View life cycle
-
     override public func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,7 +45,6 @@ public class TutorialViewController: TutorialViewControllerType, UITableViewDele
     }
 
     // MARK: - Table view delegate
-
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -57,22 +52,10 @@ public class TutorialViewController: TutorialViewControllerType, UITableViewDele
 }
 
 // MARK: - TutorialViewDelegate
-
-extension TutorialViewController: TutorialViewDelegate {
-}
+extension TutorialViewController: TutorialViewDelegate {}
 
 // MARK: - TutorialModelDelegate
-
-extension TutorialViewController: TutorialModelDelegate {
-
-    public func modelDidChanged(model: TutorialModelProtocol) {
-    }
-}
+extension TutorialViewController: TutorialModelDelegate {}
 
 // MARK: - TutorialCellDelegate
-
-extension TutorialViewController: TutorialCellDelegate {
-
-    func cellDidTapSomeButton(cell: TutorialTableViewCell) {
-    }
-}
+extension TutorialViewController: TutorialCellDelegate {}

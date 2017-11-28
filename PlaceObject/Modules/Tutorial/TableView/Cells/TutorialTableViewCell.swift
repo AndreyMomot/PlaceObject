@@ -18,6 +18,4 @@ class TutorialTableViewCell: UITableViewCell {
     }
 }
 
-
-protocol TutorialCellDelegate: NSObjectProtocol {
-}
+protocol TutorialCellDelegate: NSObjectProtocol {}

@@ -49,7 +49,6 @@ class CameraView: UIView, CameraViewProtocol{
     var restartExperienceButtonIsEnabled = true
 
     // MARK: - Overrided methods
-
     override public func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -85,7 +84,6 @@ class CameraView: UIView, CameraViewProtocol{
     }
     
     // MARK: - IBActions
-    
     @IBAction func onPressedRefreshButton(_ sender: Any) {
         self.delegate?.viewRefresh(view: self)
     }

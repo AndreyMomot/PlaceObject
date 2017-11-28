@@ -8,5 +8,4 @@
 
 import UIKit
 
-public class SettingsRouter: NSObject {
-}
+public class SettingsRouter: NSObject {}

@@ -13,13 +13,11 @@ typealias SettingsViewControllerType = MVCViewController<SettingsModelProtocol, 
 class SettingsViewController: SettingsViewControllerType {
     
     // MARK: Initializers
-    
     required public init(withView view: SettingsViewProtocol!, model: SettingsModelProtocol!, router: SettingsRouter?) {
         super.init(withView: view, model: model, router: router)
     }
     
     // MARK: - View life cycle
-
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +41,6 @@ class SettingsViewController: SettingsViewControllerType {
 }
 
 // MARK: - SettingsViewDelegate
-
 extension SettingsViewController: SettingsViewDelegate {
 
     public func viewChangedSwitch(view: SettingsViewProtocol, sender: UISwitch) {
@@ -64,6 +61,4 @@ extension SettingsViewController: SettingsViewDelegate {
 }
 
 // MARK: - SettingsModelDelegate
-
-extension SettingsViewController: SettingsModelDelegate {
-}
+extension SettingsViewController: SettingsModelDelegate {}

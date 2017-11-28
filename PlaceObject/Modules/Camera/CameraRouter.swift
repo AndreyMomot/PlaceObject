@@ -8,5 +8,4 @@
 
 import UIKit
 
-public class CameraRouter: NSObject {
-}
+public class CameraRouter: NSObject {}

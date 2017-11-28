@@ -8,8 +8,7 @@
 
 import UIKit
 
-public protocol TutorialViewDelegate: NSObjectProtocol {
-}
+public protocol TutorialViewDelegate: NSObjectProtocol {}
 
 public protocol TutorialViewProtocol: NSObjectProtocol {
 
