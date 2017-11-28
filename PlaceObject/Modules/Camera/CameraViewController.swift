@@ -514,7 +514,8 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     
     // MARK: - Command Recognition
     func makeMovements(command: String) {
-        let commandsArray = ["move left", "move right", "rotate", "scale up", "scale down", "red", "white"]
+        let commandsArray = self.model.commands
+        
         for i in (0..<commandsArray.count) {
             if (command.contains(commandsArray[i])) {
                 if command == commandsArray[0] {
