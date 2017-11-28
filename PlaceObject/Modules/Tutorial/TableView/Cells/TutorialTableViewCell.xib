@@ -25,6 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="r7s-Pc-je7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9yX-07-ZQN"/>
                     <constraint firstItem="r7s-Pc-je7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="qAc-hU-rCA"/>

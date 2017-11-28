@@ -16,17 +16,8 @@ class TutorialTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    // MARK: - IBAction
-
-    @IBAction func someButtonAction() {
-        self.delegate?.cellDidTapSomeButton(cell: self)
-    }
 }
 
 
 protocol TutorialCellDelegate: NSObjectProtocol {
-
-    /** Delegate method example */
-    func cellDidTapSomeButton(cell: TutorialTableViewCell)
 }

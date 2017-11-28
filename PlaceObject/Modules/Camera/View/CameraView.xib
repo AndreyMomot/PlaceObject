@@ -39,13 +39,13 @@
                         <action selector="onPressedRefreshButton:" destination="QRC-gi-WgL" eventType="touchUpInside" id="LTX-84-qYR"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-YH-hZo">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-YH-hZo">
                     <rect key="frame" x="16" y="607" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Ptc-ha-vUl"/>
                         <constraint firstAttribute="height" constant="40" id="zBL-Q6-Nx8"/>
                     </constraints>
-                    <state key="normal" image="info"/>
+                    <state key="normal" backgroundImage="info"/>
                     <connections>
                         <action selector="onPressedInfoButton:" destination="QRC-gi-WgL" eventType="touchUpInside" id="XNB-nQ-oCc"/>
                     </connections>

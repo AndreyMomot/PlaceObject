@@ -16,61 +16,60 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QY8-Le-s6x">
-                    <rect key="frame" x="255" y="45" width="51" height="31"/>
+                    <rect key="frame" x="255" y="80" width="51" height="31"/>
                     <connections>
                         <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="CfH-Ru-W3B"/>
                     </connections>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Object Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8I-21-w1W">
-                    <rect key="frame" x="16" y="50" width="160.5" height="21"/>
+                    <rect key="frame" x="16" y="85" width="160.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUt-Af-JZs">
-                    <rect key="frame" x="255" y="96" width="51" height="31"/>
+                    <rect key="frame" x="255" y="131" width="51" height="31"/>
                     <connections>
                         <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="f6a-yo-Bvh"/>
                     </connections>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Lightning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl6-h4-Uaj">
-                    <rect key="frame" x="16" y="101" width="131" height="21"/>
+                    <rect key="frame" x="16" y="136" width="131" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6zi-sq-7Lr">
-                    <rect key="frame" x="255" y="147" width="51" height="31"/>
+                    <rect key="frame" x="255" y="182" width="51" height="31"/>
                     <connections>
                         <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="jD7-bL-xWt"/>
                     </connections>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Visualization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deS-hi-Dmd">
-                    <rect key="frame" x="16" y="152" width="151.5" height="21"/>
+                    <rect key="frame" x="16" y="187" width="151.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit Test Visualization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgi-EG-Owh">
-                    <rect key="frame" x="16" y="203" width="159" height="21"/>
+                    <rect key="frame" x="16" y="238" width="159" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p99-Sf-m3E">
-                    <rect key="frame" x="255" y="198" width="51" height="31"/>
+                    <rect key="frame" x="255" y="233" width="51" height="31"/>
                     <connections>
                         <action selector="onChangedSwitch:" destination="QRC-gi-WgL" eventType="valueChanged" id="3Yt-LW-OHW"/>
                     </connections>
                 </switch>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="rUt-Af-JZs" secondAttribute="trailing" constant="16" id="FS7-Rl-p2Z"/>
                 <constraint firstItem="c8I-21-w1W" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="G16-kJ-F8t"/>
                 <constraint firstItem="QY8-Le-s6x" firstAttribute="centerY" secondItem="c8I-21-w1W" secondAttribute="centerY" id="Jh3-NJ-uDL"/>
                 <constraint firstItem="6zi-sq-7Lr" firstAttribute="centerY" secondItem="deS-hi-Dmd" secondAttribute="centerY" id="P7q-z7-xbU"/>
-                <constraint firstItem="QY8-Le-s6x" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" constant="45" id="TYn-pr-ZPy"/>
+                <constraint firstItem="QY8-Le-s6x" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" constant="80" id="TYn-pr-ZPy"/>
                 <constraint firstAttribute="trailing" secondItem="QY8-Le-s6x" secondAttribute="trailing" constant="16" id="YuB-bl-hbc"/>
                 <constraint firstItem="Qgi-EG-Owh" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" constant="16" id="Z36-Id-FuP"/>
                 <constraint firstAttribute="trailing" secondItem="6zi-sq-7Lr" secondAttribute="trailing" constant="16" id="Zt2-Zo-yQ4"/>

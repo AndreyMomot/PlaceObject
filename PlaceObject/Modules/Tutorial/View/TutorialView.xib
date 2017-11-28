@@ -15,13 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-Mz-sTk">
-                    <rect key="frame" x="0.0" y="78" width="320" height="490"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-Mz-sTk">
+                    <rect key="frame" x="0.0" y="128" width="320" height="440"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="To manipulate with Scene you have to press Record Button and say any command from the list below:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BJc-aZ-xQi">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="v2E-JY-Q3c"/>
                     </constraints>
@@ -29,7 +28,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="BJc-aZ-xQi" secondAttribute="trailing" id="31C-ew-mhl"/>
                 <constraint firstAttribute="trailing" secondItem="vAB-Mz-sTk" secondAttribute="trailing" id="6Df-Nn-E0K"/>
@@ -37,7 +36,7 @@
                 <constraint firstItem="BJc-aZ-xQi" firstAttribute="leading" secondItem="QRC-gi-WgL" secondAttribute="leading" id="Rlo-rE-gXy"/>
                 <constraint firstItem="vAB-Mz-sTk" firstAttribute="top" secondItem="BJc-aZ-xQi" secondAttribute="bottom" constant="8" id="dcN-qJ-6jI"/>
                 <constraint firstAttribute="bottom" secondItem="vAB-Mz-sTk" secondAttribute="bottom" id="f0o-eG-qhK"/>
-                <constraint firstItem="BJc-aZ-xQi" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" id="qny-Ct-C8l"/>
+                <constraint firstItem="BJc-aZ-xQi" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" constant="50" id="qny-Ct-C8l"/>
             </constraints>
             <connections>
                 <outlet property="tableView" destination="vAB-Mz-sTk" id="LT1-Ll-avq"/>
