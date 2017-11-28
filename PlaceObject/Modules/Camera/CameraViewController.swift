@@ -349,10 +349,8 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
             for child in virtualObject.childNodes {
                 if changeObjectColor {
                     child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-                    child.childNodes.first?.geometry?.firstMaterial?.diffuse.contents = UIColor.red
                 } else {
                     child.geometry?.firstMaterial?.diffuse.contents = UIColor.white
-                    child.childNodes.first?.geometry?.firstMaterial?.diffuse.contents = UIColor.white
                 }
                 // save pref
                 UserDefaults.standard.set(changeObjectColor, for: .changeColor)
@@ -480,8 +478,10 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
             
             if result != nil {
                 
-                self.customView.speechRecognitionLabel.text = result!.bestTranscription.formattedString
+                let command = result!.bestTranscription.formattedString
+                self.customView.speechRecognitionLabel.text = command
                 isFinal = (result?.isFinal)!
+                self.makeMovements(command: command)
             }
             
             if error != nil || isFinal {
@@ -516,6 +516,39 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
             self.customView.recordSpeechButton.isEnabled = true
         } else {
             self.customView.recordSpeechButton.isEnabled = false
+        }
+    }
+ 
+    // MARK: - Command Recognition
+    func makeMovements(command: String) {
+        let commandsArray = ["move left", "move right", "rotate", "scale up", "scale down", "red", "white"]
+        for i in (0..<commandsArray.count) {
+            if (command.contains(commandsArray[i])) {
+                if command == commandsArray[0] {
+                    let moveLeft = SCNAction.move(by: SCNVector3Make(-0.1, 0, 0), duration: 1)
+                    virtualObject.runAction(moveLeft)
+                } else if command == commandsArray[1] {
+                    let moveRight = SCNAction.move(by: SCNVector3Make(0.1, 0, 0), duration: 1)
+                    virtualObject.runAction(moveRight)
+                } else if command == commandsArray[2] {
+                    let rotate = SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)
+                    virtualObject.runAction(rotate)
+                } else if command == commandsArray[3] {
+                    let scaleUp = SCNAction.scale(by: 1.5, duration: 1)
+                    virtualObject.runAction(scaleUp)
+                } else if command == commandsArray[4] {
+                    let scaleDown = SCNAction.scale(by: 0.5, duration: 1)
+                    virtualObject.runAction(scaleDown)
+                } else if command == commandsArray[5] {
+                    for child in virtualObject.childNodes {
+                    child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                    }
+                } else if command == commandsArray[6] {
+                    for child in virtualObject.childNodes {
+                    child.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+                    }
+                }
+            }
         }
     }
 }
@@ -569,6 +602,7 @@ extension CameraViewController: CameraViewDelegate {
     }
     
     func viewStartRecord(view: CameraViewProtocol) {
+
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
