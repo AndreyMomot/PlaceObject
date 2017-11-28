@@ -37,28 +37,18 @@ class VirtualObject: SCNNode {
     }
     
     func loadModel() {
-//        guard let virtualObjectScene = SCNScene(named: "\(modelName).\(fileExtension)", inDirectory: "Models.scnassets/\(modelName)") else {
-//            return
-//        }
-//
-//        let wrapperNode = SCNNode()
-//
-//        for child in virtualObjectScene.rootNode.childNodes {
-//
+
             let defaults = UserDefaults.standard
             if defaults.bool(for: .changeColor) {
                 model.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-            }
-//            wrapperNode.addChildNode(child)
-//        }
+            } else {
+                model.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+        }
         self.addChildNode(model)
     }
     
     func unloadModel() {
         self.removeFromParentNode()
-        for child in self.childNodes {
-                child.removeFromParentNode()
-        }
     }
     
     func translateBasedOnScreenPos(_ pos: CGPoint, instantly: Bool, infinitePlane: Bool) {

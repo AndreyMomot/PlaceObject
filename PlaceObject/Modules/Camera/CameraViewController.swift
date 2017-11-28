@@ -73,9 +73,6 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     
     func resetVirtualObject() {
         virtualObject.unloadModel()
-        
-        // Reset selected object id for row highlighting in object selection view controller.
-    //    UserDefaults.standard.set(-1, for: .selectedObjectID)
     }
     
     // MARK: - ARSCNViewDelegate
@@ -349,40 +346,18 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
     // MARK: - Change Object Color
     private var changeObjectColor: Bool = UserDefaults.standard.bool(for: .changeColor) {
         didSet {
-            for node in virtualObject.childNodes {
+            for child in virtualObject.childNodes {
                 if changeObjectColor {
-                    node.childNodes.first?.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                    child.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                    child.childNodes.first?.geometry?.firstMaterial?.diffuse.contents = UIColor.red
                 } else {
-                    node.childNodes.first?.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+                    child.geometry?.firstMaterial?.diffuse.contents = UIColor.white
+                    child.childNodes.first?.geometry?.firstMaterial?.diffuse.contents = UIColor.white
                 }
                 // save pref
                 UserDefaults.standard.set(changeObjectColor, for: .changeColor)
             }
         }
-    }
-    
-    @objc func dismissSettings() {
-        self.dismiss(animated: true, completion: nil)
-        updateSettings()
-    }
-    
-    func updateSettings() {
-        let defaults = UserDefaults.standard
-        
-        changeObjectColor = defaults.bool(for: .changeColor)
-        showDebugVisuals = defaults.bool(for: .debugMode)
-        toggleDefaultLighting(defaults.bool(for: .defaultLighting))
-        showHitTestAPIVisualization = defaults.bool(for: .hitTestMode)
-    }
-    
-    func resetSettings() {
-        let defaults = UserDefaults.standard
-        
-        defaults.set(-1, for: .selectedObjectID)
-        defaults.set(false, for: .changeColor)
-        defaults.set(false, for: .debugMode)
-        defaults.set(true, for: .defaultLighting)
-        defaults.set(false, for: .hitTestMode)
     }
     
     // MARK: - UIPopoverPresentationControllerDelegate
@@ -407,6 +382,30 @@ class CameraViewController: CameraViewControllerType, ARSCNViewDelegate, SFSpeec
         
         navigationController.popoverPresentationController?.sourceView = button
         navigationController.popoverPresentationController?.sourceRect = button.bounds
+    }
+    
+    @objc func dismissSettings() {
+        self.dismiss(animated: true, completion: nil)
+        updateSettings()
+    }
+    
+    func updateSettings() {
+        let defaults = UserDefaults.standard
+        
+        changeObjectColor = defaults.bool(for: .changeColor)
+        showDebugVisuals = defaults.bool(for: .debugMode)
+        toggleDefaultLighting(defaults.bool(for: .defaultLighting))
+        showHitTestAPIVisualization = defaults.bool(for: .hitTestMode)
+    }
+    
+    func resetSettings() {
+        let defaults = UserDefaults.standard
+        
+        defaults.set(-1, for: .selectedObjectID)
+        defaults.set(false, for: .changeColor)
+        defaults.set(false, for: .debugMode)
+        defaults.set(true, for: .defaultLighting)
+        defaults.set(false, for: .hitTestMode)
     }
     
     // MARK: - Speech Recognition
