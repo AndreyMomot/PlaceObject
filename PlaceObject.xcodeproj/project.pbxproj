@@ -27,7 +27,6 @@
 		6326A6001FBC877100487122 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A5F61FBC877100487122 /* Sphere.swift */; };
 		6326A6011FBC877100487122 /* Pyramid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A5F71FBC877100487122 /* Pyramid.swift */; };
 		6326A6021FBC877100487122 /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A5F81FBC877100487122 /* Capsule.swift */; };
-		6326A6051FBC87E300487122 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6041FBC87E300487122 /* Utilities.swift */; };
 		6326A6091FBC880600487122 /* HitTestVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6071FBC880600487122 /* HitTestVisualization.swift */; };
 		6326A60A1FBC880600487122 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326A6081FBC880600487122 /* Gesture.swift */; };
 		6328DAA01FCC4B73009A4D42 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328DA991FCC4B72009A4D42 /* SettingsBuilder.swift */; };
@@ -45,6 +44,13 @@
 		6328DABB1FCC7171009A4D42 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328DAB11FCC7171009A4D42 /* TutorialViewController.swift */; };
 		6328DABC1FCC7171009A4D42 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328DAB31FCC7171009A4D42 /* TutorialView.swift */; };
 		6328DABD1FCC7171009A4D42 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6328DAB41FCC7171009A4D42 /* TutorialView.xib */; };
+		632C792C1FD041B5000E7D07 /* UserDefaults+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C792B1FD041B5000E7D07 /* UserDefaults+Common.swift */; };
+		632C792E1FD041DA000E7D07 /* Collections+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C792D1FD041DA000E7D07 /* Collections+Common.swift */; };
+		632C79301FD0439F000E7D07 /* SCNNode+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C792F1FD0439F000E7D07 /* SCNNode+Common.swift */; };
+		632C79321FD043C0000E7D07 /* SCNVector3+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C79311FD043C0000E7D07 /* SCNVector3+Common.swift */; };
+		632C79341FD043E5000E7D07 /* SCNMaterial+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C79331FD043E5000E7D07 /* SCNMaterial+Common.swift */; };
+		632C79361FD04461000E7D07 /* ARSCNView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C79351FD04461000E7D07 /* ARSCNView+Common.swift */; };
+		632C79381FD044B9000E7D07 /* CGPoint+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C79371FD044B9000E7D07 /* CGPoint+Common.swift */; };
 		635A8F401FC83B9800E81978 /* AddObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A8F3F1FC83B9800E81978 /* AddObjectViewController.swift */; };
 		63DFCCEF1FCD705300882179 /* plane_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DFCCEC1FCD705300882179 /* plane_grid.png */; };
 		63DFCCF01FCD705300882179 /* crosshair_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DFCCED1FCD705300882179 /* crosshair_blue.png */; };
@@ -74,7 +80,6 @@
 		6326A5F61FBC877100487122 /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 		6326A5F71FBC877100487122 /* Pyramid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pyramid.swift; sourceTree = "<group>"; };
 		6326A5F81FBC877100487122 /* Capsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
-		6326A6041FBC87E300487122 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6326A6071FBC880600487122 /* HitTestVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitTestVisualization.swift; sourceTree = "<group>"; };
 		6326A6081FBC880600487122 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		6328DA991FCC4B72009A4D42 /* SettingsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
@@ -92,6 +97,13 @@
 		6328DAB11FCC7171009A4D42 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		6328DAB31FCC7171009A4D42 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		6328DAB41FCC7171009A4D42 /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
+		632C792B1FD041B5000E7D07 /* UserDefaults+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Common.swift"; sourceTree = "<group>"; };
+		632C792D1FD041DA000E7D07 /* Collections+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+Common.swift"; sourceTree = "<group>"; };
+		632C792F1FD0439F000E7D07 /* SCNNode+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Common.swift"; sourceTree = "<group>"; };
+		632C79311FD043C0000E7D07 /* SCNVector3+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Common.swift"; sourceTree = "<group>"; };
+		632C79331FD043E5000E7D07 /* SCNMaterial+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNMaterial+Common.swift"; sourceTree = "<group>"; };
+		632C79351FD04461000E7D07 /* ARSCNView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Common.swift"; sourceTree = "<group>"; };
+		632C79371FD044B9000E7D07 /* CGPoint+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Common.swift"; sourceTree = "<group>"; };
 		635A8F3F1FC83B9800E81978 /* AddObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddObjectViewController.swift; sourceTree = "<group>"; };
 		63DFCCEC1FCD705300882179 /* plane_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane_grid.png; sourceTree = "<group>"; };
 		63DFCCED1FCD705300882179 /* crosshair_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair_blue.png; sourceTree = "<group>"; };
@@ -128,9 +140,9 @@
 		6326A5C61FBC864D00487122 /* PlaceObject */ = {
 			isa = PBXGroup;
 			children = (
+				632C792A1FD0417A000E7D07 /* Categories */,
 				63DFCCEB1FCD700B00882179 /* Resourses */,
 				6326A6061FBC87FA00487122 /* UI Elements */,
-				6326A6031FBC87D200487122 /* Utilities */,
 				6326A5EE1FBC875D00487122 /* Models */,
 				6326A5DA1FBC868700487122 /* Modules */,
 				6326A5C71FBC864D00487122 /* AppDelegate.swift */,
@@ -197,14 +209,6 @@
 				6326A5F21FBC877000487122 /* VirtualObject.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		6326A6031FBC87D200487122 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				6326A6041FBC87E300487122 /* Utilities.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		6326A6061FBC87FA00487122 /* UI Elements */ = {
@@ -275,6 +279,20 @@
 				6328DAB41FCC7171009A4D42 /* TutorialView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		632C792A1FD0417A000E7D07 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				632C792B1FD041B5000E7D07 /* UserDefaults+Common.swift */,
+				632C792D1FD041DA000E7D07 /* Collections+Common.swift */,
+				632C792F1FD0439F000E7D07 /* SCNNode+Common.swift */,
+				632C79311FD043C0000E7D07 /* SCNVector3+Common.swift */,
+				632C79331FD043E5000E7D07 /* SCNMaterial+Common.swift */,
+				632C79351FD04461000E7D07 /* ARSCNView+Common.swift */,
+				632C79371FD044B9000E7D07 /* CGPoint+Common.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		635A8F411FC83DC600E81978 /* AddNewObject */ = {
@@ -380,12 +398,14 @@
 				6326A5EC1FBC870300487122 /* CameraView.swift in Sources */,
 				6328DAB51FCC7171009A4D42 /* TutorialTableViewCell.swift in Sources */,
 				6326A5FF1FBC877100487122 /* Geosphere.swift in Sources */,
+				632C79321FD043C0000E7D07 /* SCNVector3+Common.swift in Sources */,
+				632C79361FD04461000E7D07 /* ARSCNView+Common.swift in Sources */,
 				6326A6001FBC877100487122 /* Sphere.swift in Sources */,
 				6326A6091FBC880600487122 /* HitTestVisualization.swift in Sources */,
+				632C79341FD043E5000E7D07 /* SCNMaterial+Common.swift in Sources */,
 				6326A60A1FBC880600487122 /* Gesture.swift in Sources */,
 				6328DABB1FCC7171009A4D42 /* TutorialViewController.swift in Sources */,
 				6328DAA41FCC4B73009A4D42 /* SettingsRouter.swift in Sources */,
-				6326A6051FBC87E300487122 /* Utilities.swift in Sources */,
 				6328DAA51FCC4B73009A4D42 /* SettingsModel.swift in Sources */,
 				6326A6021FBC877100487122 /* Capsule.swift in Sources */,
 				6328DAB81FCC7171009A4D42 /* TutorialBuilder.swift in Sources */,
@@ -401,11 +421,15 @@
 				6328DAB91FCC7171009A4D42 /* TutorialModel.swift in Sources */,
 				6326A5FA1FBC877100487122 /* Torus.swift in Sources */,
 				6328DAA11FCC4B73009A4D42 /* SettingsViewController.swift in Sources */,
+				632C79381FD044B9000E7D07 /* CGPoint+Common.swift in Sources */,
 				6326A5DC1FBC869E00487122 /* MVCViewController.swift in Sources */,
 				6328DABC1FCC7171009A4D42 /* TutorialView.swift in Sources */,
 				6326A6011FBC877100487122 /* Pyramid.swift in Sources */,
 				6326A5EB1FBC870300487122 /* CameraViewController.swift in Sources */,
+				632C792E1FD041DA000E7D07 /* Collections+Common.swift in Sources */,
+				632C79301FD0439F000E7D07 /* SCNNode+Common.swift in Sources */,
 				635A8F401FC83B9800E81978 /* AddObjectViewController.swift in Sources */,
+				632C792C1FD041B5000E7D07 /* UserDefaults+Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

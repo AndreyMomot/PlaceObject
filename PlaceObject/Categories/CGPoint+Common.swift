@@ -1,12 +1,11 @@
 //
-//  Utilities.swift
-//  PlaneDetection
+//  CGPoint+Common.swift
+//  PlaceObject
 //
-//  Created by Andrei Momot on 11/1/17.
+//  Created by Andrei Momot on 11/30/17.
 //  Copyright © 2017 Andrey Momot. All rights reserved.
 //
 
-import Foundation
 import ARKit
 
 // MARK: - CGPoint extensions
@@ -75,18 +74,7 @@ func *= (left: inout CGPoint, right: CGFloat) {
 // MARK: - CGRect extensions
 
 extension CGRect {
-    
     var mid: CGPoint {
         return CGPoint(x: midX, y: midY)
     }
 }
-
-
-
-
-
-
-
-
-
-
